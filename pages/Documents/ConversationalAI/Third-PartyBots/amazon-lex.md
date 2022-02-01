@@ -15,7 +15,7 @@ The following documentation outlines the configuration for the connector and how
 
 {: .important}
 At this time, Lex response cards & audio messages are not supported.
-The Connector uses Lex ApiVersion 2016-11-28.Currently, we don't support Amazon Lex V2.
+The Connector uses Lex ApiVersion 2016-11-28. Currently, we don't support Amazon Lex V2.
 
 ### Bot Configuration
 
