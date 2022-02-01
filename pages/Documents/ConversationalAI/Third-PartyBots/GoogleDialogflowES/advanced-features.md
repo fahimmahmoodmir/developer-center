@@ -373,7 +373,7 @@ Example `RichContentEvent` body of a map rich content that will be sent by Third
 }
 ```
 
-After adding cloud function make sure to deploy it and make sure it is active.
+After adding cloud function make sure to deploy it and verify it is active.
 
 #### Link Google/Third-Party Cloud Function to Fulfillment as Webhook
 
