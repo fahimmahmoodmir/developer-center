@@ -119,7 +119,7 @@ property (further information about `channelData` can be found
   "channelData": {
     "context": {
       "lpEvent": {}, // Holds LP Events
-      "lpSdes": {} // Hold SDES
+      "lpSdes": {} // Holds SDES
     }
   }
 }
