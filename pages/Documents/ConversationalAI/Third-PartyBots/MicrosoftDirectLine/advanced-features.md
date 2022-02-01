@@ -340,7 +340,7 @@ Figure 3.9 LivePerson Function Invocation with payload
 
 Third-Party Bots allows LivePerson's Rich Messaging channel capabilities not only to be received as a response from the vendor but also, allow Rich Messages
 (Structured Content) to be sent back to the vendor based on specific user interactions/responses (For example user sharing their location on WhatsApp).
-Please note these capabilities are sometimes limited by the channels in which conversation is happening. For the list of Rich Messaging capabilities for each channel,
+Please note these capabilities are sometimes limited by the channels in which the conversation is happening. For the list of Rich Messaging capabilities for each channel,
 browse or search the table on the [Knowledge Center](https://knowledge.liveperson.com/messaging-channels-messaging-channels-capabilities-comparison.html).
 
 In Microsoft Bot the Rich Content Event(`RichContentEvent`) is passed via the property `event` which is part of another property `lpEvent`
