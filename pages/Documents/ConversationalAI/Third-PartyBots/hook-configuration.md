@@ -83,13 +83,13 @@ The following payload content will be recieved from the Function when an error i
       <tr>
     <td>faasPayload</td>
     <td>Object</td>
-    <td>Custom Integration</td>
+    <td>LivePerson Functions</td>
     <td>Defines the vendor payload </td>
   </tr>
       <tr>
     <td>faas</td>
     <td>Object</td>
-    <td>Custom Integraiton</td>
+    <td>LivePerson Functions</td>
     <td>Defines the vendor response </td>
   </tr>
       <tr>
@@ -200,7 +200,7 @@ if (queryInput.text && queryInput.text.text) {
 return callback(null, payload);
 ```
 
-##### Custom Integration
+##### LivePerson Functions
 
 ###### Request payload
 
@@ -445,7 +445,7 @@ if (
 return callback(null, payload);
 ```
 
-##### Custom Integration via Faas
+##### LivePerson Functions
 
 ###### Request payload
 

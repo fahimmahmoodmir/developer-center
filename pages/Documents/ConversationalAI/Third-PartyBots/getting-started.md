@@ -19,10 +19,10 @@ indicator: both
 
 ### Introduction
 
-Third party bot providers can be used and managed through LivePerson's Conversational Cloud just like a normal human agent or a LivePerson bot Using our connectors, you can provision IBM Watson, Google Dialogflow, Amazon Lex, or Microsoft bots. You can also leverage LivePerson Functions to build custom integrations with other third party bot providers.
+Third party bot providers can be used and managed through LivePerson's Conversational Cloud just like a normal human agent or a LivePerson bot Using our connectors, you can provision IBM Watson, Google Dialogflow, Amazon Lex, or Microsoft bots. You can also leverage LivePerson Functions to build integration with other third party bot providers.
 
 {: .important}
-If you need to connect an external bot that does not have a pre-built connector, see [this document](third-party-bots-custom-integration.html) for instructions.
+If you need to connect an external bot that does not have a pre-built connector, see [this document](third-party-bots-liveperson-functions.html) for instructions.
 
 Each connector provides the ability to:
 
@@ -961,4 +961,4 @@ Move on to the product guides to learn how to connect and configure your specifi
 
 - [Microsoft Bot Framework](bot-connectors-microsoft-bot-framework.html)
 
-- [Custom Third-Party Bots](bot-connectors-custom-third-party-bots.html)
+- [LivePerson Functions Bot](third-party-bots-liveperson-functions.html)
