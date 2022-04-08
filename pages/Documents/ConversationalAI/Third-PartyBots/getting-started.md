@@ -74,8 +74,8 @@ During run-time, your bot may have different operational states. These states ar
 Currently, the bot connectors only support following events from the customer:
 
 - Plain text input
-- Rich Content
-- File
+- [Rich Content](getting-started-with-rich-messaging-introduction.html)
+- [File](file-sharing-file-sharing-for-web-messaging.html)
 
 We do not support passing of any other UMS events. If the customer sends an
 rich content or a file to the bot, the bot will replace it with a special

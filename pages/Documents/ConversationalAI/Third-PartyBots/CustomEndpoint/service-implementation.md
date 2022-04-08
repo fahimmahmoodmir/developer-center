@@ -8,12 +8,13 @@ permalink: third-party-bots-custom-endpoint-service-implementation.html
 indicator:
 ---
 
-### API Service Specification
+### Overview
 
 The Custom Endpoint vendor of Third Party Bots allows brands to build their API that generates
 Bot responses for incoming consumer messages, and connect this to conversations taking place in the
-Conversational Cloud. The basic flow of how a consumer message is sent and bot response is received
-on an abstract level can be seen in Figure 2.1
+Conversational Cloud. This section will describe the general information on what a Custom Endpoint service
+should be implementing to successfully integrate with the Third-Party Bots. The basic flow of how
+a consumer message is sent and bot response is received on an abstract level can be seen in Figure 2.1
 
 <img class="fancyimage" style="width:800px" src="img/customendpoint/message-flow.png">
 Figure 2.1 Depicts how a consumer message is sent to Custom Endpoint and a
@@ -29,25 +30,13 @@ response is sent back.
 <li>UMS sends the bot response to the consumer</li>
 </ol>
 
-### Service Implementation
-
-This section will describe the general information on what a Custom Endpoint service
-should be implementing to successfully integrate with the Third-Party Bots.
-We have provided a public [GitHub Repository](https://github.com/LivePersonInc/third-party-bots-custom-endpoint-reference-service)
-that contains the [OpenAPI Specification](https://swagger.io/specification). It provides
-detailed information on Request and Response bodies sent or expected by the Third-Party
-Bots.
-
 ### Service Endpoints
 
-To connect to Third-Party Bots via the Custom Endpoint vendor some service endpoints
-methods must be implemented by brands. The following are the methods defined by the
-[API Specification](https://github.com/LivePersonInc/third-party-bots-custom-endpoint-reference-service):
-
-- Get Bot Environments
-- Get Bot State
-- Create Conversation
-- Send Conversation Events
+To connect to Third-Party Bots via the Custom Endpoint vendor few service endpoints
+methods must be implemented by brands that we will explain below. We also have provided
+a public [GitHub Repository](https://github.com/LivePersonInc/third-party-bots-custom-endpoint-reference-service)
+that contains the [OpenAPI Specification](https://swagger.io/specification). It includes
+detailed information on Request and Response bodies sent or expected by the Third-Party Bots.
 
 #### Get Bot Environments
 
@@ -125,8 +114,9 @@ and conversation details are provided during the creation of the conversation.
 Please note, [SDES](engagement-attributes-types-of-engagement-attributes.html)
 attributes are **only** collected at the start of a conversation, and [SDES](engagement-attributes-types-of-engagement-attributes.html)
 are **only** collected if the Engagement Attributes configuration is enabled.
-This API endpoint is expected to create a conversation resource that can be addressed on the following 'Send Conversation Events' call
-conversation against a bot.
+This API endpoint is expected to create a conversation resource that can be
+addressed on the following [Send Conversation Events](third-party-bots-custom-endpoint-service-implementation.html#send-conversation-events)
+call conversation against a bot.
 
 {: .important}
 **Please Note** It is the responsibility of the Custom Endpoint service owner to
@@ -186,8 +176,8 @@ Figure 2.4 Example request body of Create Conversation endpoint
 
 #### Send Conversation Events
 
-This endpoint will receive events on consumer messages and conversation changes.
-sends bot responses against the received consumer messages. The expected responses
+This endpoint is expected to respond with the actions and messages a bot wants to
+send as a direct response to the received consumer event. The expected responses
 are described in the [Basic Content](third-party-bots-custom-endpoint-basic-content.html)
 and [Advance features](third-party-bots-custom-endpoint-advanced-features.html) sections.
 
