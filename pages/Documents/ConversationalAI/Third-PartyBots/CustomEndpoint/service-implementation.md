@@ -125,7 +125,7 @@ and conversation details are provided during the creation of the conversation.
 Please note, [SDES](engagement-attributes-types-of-engagement-attributes.html)
 attributes are **only** collected at the start of a conversation, and [SDES](engagement-attributes-types-of-engagement-attributes.html)
 are **only** collected if the Engagement Attributes configuration is enabled.
-This API endpoint is expected to create a conversation instance for the LivePerson
+This API endpoint is expected to create a conversation resource that can be addressed on the following 'Send Conversation Events' call
 conversation against a bot.
 
 {: .important}
