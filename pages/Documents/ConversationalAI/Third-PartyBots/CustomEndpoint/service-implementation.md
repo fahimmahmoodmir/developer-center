@@ -186,7 +186,7 @@ Figure 2.4 Example request body of Create Conversation endpoint
 
 #### Send Conversation Events
 
-An Event describes content sent by a brand's consumer in a conversation. This endpoint
+This endpoint will receive events on consumer messages and conversation changes.
 sends bot responses against the received consumer messages. The expected responses
 are described in the [Basic Content](third-party-bots-custom-endpoint-basic-content.html)
 and [Advance features](third-party-bots-custom-endpoint-advanced-features.html) sections.
