@@ -80,7 +80,7 @@ Figure 2.2 Example response of Get Bot Environments endpoint
 
 #### Get Bot State
 
-A bot can have in Custom Endpoint service following states:
+A bot on a Custom Endpoint service should have one of the following states:
 
 - `online`
 - `offline`
