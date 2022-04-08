@@ -255,7 +255,7 @@ the LivePerson function while invocation. The invoke response is considered an a
 An example of such a response can be seen in Figure 4.5.
 
 {: .notice}
-Please note we only support **ONE ACTION** per Custom Endpoint service response
+Please note we only support **ONE ACTION** per response
 
 ```json
 {
