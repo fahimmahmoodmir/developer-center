@@ -89,7 +89,7 @@ A bot on a Custom Endpoint service should have one of the following states:
 
 This endpoint is called on test connection and while starting a bot. It should
 respond with the bot state and the bot version. Every state besides `online`
-will cause failures.
+is interpreted as a nonhealthy and unreachable bot.
 
 **Endpoint**
 
