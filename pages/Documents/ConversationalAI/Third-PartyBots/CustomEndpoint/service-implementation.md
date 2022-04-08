@@ -41,7 +41,7 @@ Bots.
 ### Service Endpoints
 
 To connect to Third-Party Bots via the Custom Endpoint vendor some service endpoints
-methods must be implemented by brands. Following are the methods defined by the
+methods must be implemented by brands. The following are the methods defined by the
 [API Specification](https://github.com/LivePersonInc/third-party-bots-custom-endpoint-reference-service):
 
 - Get Bot Environments
