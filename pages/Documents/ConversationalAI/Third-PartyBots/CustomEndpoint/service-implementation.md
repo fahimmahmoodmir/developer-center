@@ -329,7 +329,7 @@ in [API Service Specification](https://github.com/LivePersonInc/third-party-bots
 Figure 2.7 showing the happy test connection flow
 
 1. Test Connection Caller calls the Third-party Bots
-2. Third-Party Bots gets Sentinel Bearer by using the credentials provided
+2. Third-Party Bots gets Sentinel bearer token by using the credentials provided
    in vendor configuration
 3. Response from Sentinel API is sent back with the access token that can be used as a bearer
 4. [Get Bot State](third-party-bots-custom-endpoint-service-implementation.html#get-bot-state)
