@@ -293,7 +293,7 @@ mechanism for a server to server interaction. Third-Party Bots uses the provided
 `Client ID` and `Client Secret` of an App Installation in the vendor configuration to generate bearer tokens.
 More information on the Sentinel API can be found [here](connector-api-send-api-authorization-and-authentication.html#get-appjwt).
 
-Third-Party Bots sends the bearer token inside the `Authorization` on all requests
+Third-Party Bots sends the bearer token inside the `Authorization` header on all requests
 to the Custom Endpoint service. The brands need to ensure the request is authorized, e.g.
 if the account the request is coming from is allowed to access the addressed bot
 Custom Endpoint service endpoints.
