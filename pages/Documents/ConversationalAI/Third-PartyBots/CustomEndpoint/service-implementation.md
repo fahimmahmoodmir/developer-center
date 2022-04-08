@@ -288,6 +288,10 @@ to the Custom Endpoint service. The brands need to ensure the request is authori
 if the account the token has been generated on is allowed to access the addressed bot
 Custom Endpoint service endpoints.
 
+### Error Retry Strategies and Endpoint Timeout
+
+If the service of a Custom Endpoint is temporarily unavailable due to maintenance or if there are changes in the network that cause temporary errors, the Third-Party Bots use strategies to respond to such eventualities. These are described in the [Retry Policy Recommendations](retry-policy-recommendations.html). After three attempts, no further request will be made. Furthermore, the time until a timeout for a single request occurs is 60 seconds.
+
 ### Service Flows
 
 This section will describe some of the common interaction flows. We will highlight which API request
