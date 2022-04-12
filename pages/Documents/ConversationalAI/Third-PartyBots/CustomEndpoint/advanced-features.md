@@ -12,7 +12,7 @@ This section will describe the responses that are expected to be sent by the
 [Send Conversation Events](third-party-bots-custom-endpoint-service-implementation.html#send-conversation-events)
 endpoint of the Custom Endpoint service. To ensure the validity of the response, brands can use our
 [Conversation Tester feature](third-party-bots-conversation-tester.html).
-In the case of Structure Content validation, you can also leverage
+In the case of Structured Content validation, you can also leverage
 [this tool](https://livepersoninc.github.io/json-pollock/editor/).
 
 ### Sending Encoded Metadata
