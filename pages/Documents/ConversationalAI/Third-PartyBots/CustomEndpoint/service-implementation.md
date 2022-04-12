@@ -116,7 +116,7 @@ attributes are **only** collected at the start of a conversation, and [SDES](eng
 are **only** collected if the Engagement Attributes configuration is enabled.
 This API endpoint is expected to create a conversation resource that can be
 addressed on the following [Send Conversation Events](third-party-bots-custom-endpoint-service-implementation.html#send-conversation-events)
-call conversation against a bot.
+call.
 
 {: .important}
 **Please Note** It is the responsibility of the Custom Endpoint service owner to
