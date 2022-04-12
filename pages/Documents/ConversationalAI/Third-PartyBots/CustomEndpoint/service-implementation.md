@@ -280,10 +280,10 @@ Figure 2.6 Example request body of Rich Content event sent to Send Content Event
 
 Third-Party Bots uses [App-JWT OAuth 2.0](accessing-liveperson-apis.html#oauth-20-app-jwt) authentication
 mechanism for a server to server interaction. Third-Party Bots uses the provided
-`Client ID` and `Client Secret` of an App Installation in the vendor configuration to generate bearer tokens.
+`Client ID` and `Client Secret` of an App Installation in the vendor configuration to generate a JWT.
 More information on the Sentinel API can be found [here](connector-api-send-api-authorization-and-authentication.html#get-appjwt).
 
-Third-Party Bots sends the bearer token inside the `Authorization` header on all requests
+Third-Party Bots sends the JWT inside the `Authorization` header on all requests
 to the Custom Endpoint service. The brands need to ensure the request is authorized, e.g.
 if the account the token has been generated on is allowed to access the addressed bot
 resources.
