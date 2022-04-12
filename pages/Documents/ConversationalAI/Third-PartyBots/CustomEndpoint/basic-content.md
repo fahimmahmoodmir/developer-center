@@ -21,7 +21,7 @@ Structured Content/Rich Content is supported by the core LivePerson platform. Do
 for the feature can be found [here](getting-started-with-rich-messaging-introduction.html).
 
 {: .important}
-If Images are sent in Rich content, then their URLs must be added to a whitelist via internal
+If images are sent in Rich content, their URLs must be added to a whitelist via internal
 LivePerson configuration (Houston: `messaging.rich.content.valid.urls`). Please note that you
 must add all possible domains to this list manually as wildcards are not supported. Moreover,
 All domains must be HTTPS secure.
