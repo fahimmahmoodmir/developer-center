@@ -286,7 +286,7 @@ More information on the Sentinel API can be found [here](connector-api-send-api-
 Third-Party Bots sends the bearer token inside the `Authorization` header on all requests
 to the Custom Endpoint service. The brands need to ensure the request is authorized, e.g.
 if the account the token has been generated on is allowed to access the addressed bot
-Custom Endpoint service endpoints.
+resources.
 
 ### Error Retry Strategies and Endpoint Timeout
 
