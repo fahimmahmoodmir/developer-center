@@ -429,3 +429,32 @@ const response = {
 The results can be seen in a demo below:
 
 <img class="fancyimage" style="width:300px" src="img/microsoftbotframework/microsoft_richcontent_demo.gif">
+
+
+### Receiving Last consumer message (Messaging Only)
+
+Third-Party Bots will provide the last message sent by the consumer as part of the welcome event when an ongoing conversation gets transferred to a new Agent or skill. This will provide a way to run custom logic and respond back with a different response than the normal welcome intent.
+
+In Microsoft Bot the last consumer message is passed via the property `lastConsumerMessage` that is sent with `context` information. This context information within a conversation is preserved/passed in the channelData property (further information about channelData can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-api-reference?view=azure-bot-service-4.0#activity-object)).
+
+An example of the request body containing WelcomeEvent can be seen below:
+
+```javascript
+{
+  "type": "message",
+  "text": "",
+  "channelData": {
+    "context": {
+      "lastConsumerMessage": "I need to return my order"
+      "lpEvent": {
+        "event": {
+          "type": "ContentEvent",
+          "content": "welcome"
+        }
+      },
+      "lpSdes": {}
+    }
+  }
+}
+```
+Figure 4.3 Shows example welcomeEvent received by Microsoft Bot

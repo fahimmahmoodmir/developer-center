@@ -335,6 +335,21 @@ A demo of our WhatsApp map example with the above bot configuration (defined abo
 
 <img class="fancyimage" style="width:300px" src="img/watsonassistant/watson_v1_richcontent_demo.gif">
 
+
+
+### Receiving Last consumer message (Messaging Only)
+
+Third-Party Bots will provide the last message sent by the consumer as part of the welcome event when an ongoing conversation gets transferred to a new Agent or skill. This will provide a way to run custom logic and respond back with a different response than the normal welcome intent.
+
+The `lastConsumerMessage` is part of the context that is sent by Third-Party Bots. Thus, for Watson Assistant, we can leverage
+the [Context Variables](https://cloud.ibm.com/docs/assistant?topic=assistant-dialog-runtime-context#dialog-runtime-context-variables)
+
+An example of accessing `lastConsumerMessage` from that context variable can be seen in Figure 3.10.
+
+<img class="fancyimage" style="width:600px" src="img/ThirdPartyBots/watson_consumer-message-access-event.png">
+Figure 3.10 Displaying how to access the last consumer message using Context Variables
+
+
 ### Watson Discovery
 
 Discovery Search is a tool that uses the knowledge of websites, documents and other data, to generate an answer the Watson Bot is able to send within a conversation. If enabled, the bot searches for matching parts of the provided information on specified intents or in case no matching intent was found.

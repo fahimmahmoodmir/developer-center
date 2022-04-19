@@ -412,3 +412,59 @@ function lambda(input, callback) {
 We can see the above LivePerson function in action below:
 
 <img class="fancyimage" style="width:300px" src="img/faas/faas_richcontent_demo.gif">
+
+### Receiving Last consumer message (Messaging Only)
+
+Third-Party Bots will provide the last message sent by the consumer as part of the welcome event when an ongoing conversation gets transferred to a new Agent or skill. This will provide a way to run custom logic and respond back with a different response than the normal welcome intent.
+
+In LivePerson functions integration last consumer message is passed via the property `lastConsumerMessage` that is sent with `context` information. An example of the request body containing WelcomeEvent can be seen below:
+
+```javascript
+const {
+  message,
+  convId,
+  context: {
+    lastConsumerMessage,
+    lpEvent: {
+      event: { type, content }, // this contain the ContentEvent with content value `welcome`
+    },
+  },
+} = input.payload;
+```
+
+A minimal LivePerson function code for the demonstration can be seen below. This LivePerson function will
+check if the input payload has `ContentEvent` with the value `welcome` and the `lastConsumerMessage` not empty then will respond with the entire body.
+
+```javascript
+function lambda(input, callback) {
+  const payload = {
+    messages: [],
+    context: {},
+  };
+  const {
+    message,
+    context: {
+      lastConsumerMessage = "",
+      lpEvent: { 
+        type = "",
+        content = "" 
+      } = {}
+    } = {},
+  } = input.payload;
+
+  if (message && message.toLowerCase() === "hi") {
+    payload.messages.push("Hi there! How can I help you today?");
+  } else if (
+    lastConsumerMessage &&
+    content === "welcome"
+  ) {
+    payload.messages.push(
+      `the last consumer message is: ${lastConsumerMessage} `
+    );
+  } else {
+    payload.messages.push("I am sorry i don't understand. Can you repeat?");
+  }
+
+  callback(null, payload);
+}
+```

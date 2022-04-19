@@ -289,3 +289,80 @@ Once all of the above steps have been configured then the Dialogflow CX bot will
 A demo of our WhatsApp map example with Google Cloud Function (defined above) can be seen below:
 
 <img class="fancyimage" style="width:300px" src="img/dialogflowcx/dialogflow_cx_richcontent_demo.gif">
+
+### Receiving Last consumer message (Messaging Only)
+
+Third-Party Bots will provide the last message sent by the consumer as part of the welcome event when an ongoing conversation gets transferred to a new Agent or skill. This will provide a way to run custom logic and respond back with a different response than the normal welcome intent.
+
+An example use case of the last consumer message sent by Third-Party Bots is described below. The example will show how to set up and access the WelcomeEvent response with Google Dialogflow CX.
+
+#### Create Welcome Event Haandler 
+
+Ensure you have an event handler in your flow builder that handle the custom `WELCOME` event, the highlighted area in figure 3.11 show you how to add new event handler in DialogFlow CX builder.
+
+<img class="fancyimage" style="width:550px" src="img/ThirdPartyBots/dialogflow-cx-welcome-event.png">
+
+Figure 3.11 Creation of the welcome event
+#### Create Google Cloud Function
+
+For accessing the WelcomeEvent body sent by Third-Party Bots you will need to create a Google cloud function that should be capable of parsing the additional message context sent by Third-Party Bots. The minimal code example below shows how to check if there is a `LastConsumerMessage` present in the message context , then send back text response containing the last consumer message. Please note, that response sent by The Google Cloud function should follow the Dialogflow CX response schemas.
+
+
+```javascript
+/**
+ * Responds to any HTTP request.
+ *
+ * @param {Request} request HTTP request context.
+ * @param {Response} response HTTP response context.
+ */
+exports.handleWebhook = (request, response) => {
+  const {
+    payload: {
+      lastConsumerMessage
+    } = {} 
+  } = req.body;
+
+  let fulfillmentResponse;
+
+  if (lastConsumerMessage) {
+    fulfillmentResponse = {
+      fulfillmentResponse: {
+        messages: [
+          {
+            text: {
+              text: [`Last Consumer Message Received: ${lastConsumerMessage}`]
+            }
+          }
+        ]
+      }
+    };
+  } else {
+    fulfillmentResponse = {
+      fulfillmentResponse: {
+        messages: [
+          {
+            text: {
+              text: [`No Consumer Message found`]
+            }
+          }
+        ]
+      }
+    };
+  }
+  res.status(200).send(fulfillmentResponse);
+
+};
+```
+
+#### Link Google/Third-Party Cloud Function to Fulfillment as Webhook
+
+After the function has been deployed this needs to be added to the fulfillment section of the Welcome event handler.
+This fulfillment can be found in the Google Dialogflow CX console as shown in the Figure 3.12 highlighted area.
+Webhook needs to be enabled and filled with the relevant information of the cloud function.
+(e.g. Auth Data and the Trigger URL)
+
+<img class="fancyimage" style="width:600px" src="img/ThirdPartyBots/dialogflow_cx_welcomeevent-cloud-function.png">
+Figure 3.12 Webhook configuration that need to be added for calling Cloud Function
+
+Once Webhook configuration is added then the Google Dialogflow CX bot will be able to respond to the welcome event via the cloud function.
+
