@@ -292,11 +292,10 @@ A demo of our WhatsApp map example with Google Cloud Function (defined above) ca
 
 ### Receiving Last consumer message (Messaging Only)
 
-Third-Party Bots will provide the last message sent by the consumer as part of the welcome event when an ongoing conversation gets transferred to a new Agent or skill. This will provide a way to run custom logic and respond back with a different response than the normal welcome intent.
+Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-An example use case of the last consumer message sent by Third-Party Bots is described below. The example will show how to set up and access the WelcomeEvent response with Google Dialogflow CX.
-
-#### Create Welcome Event Haandler 
+We will describe an example of how to set up and access the WelcomeEvent response in Google Dialogflow CX below. We will use Google Dialogflow's capability of providing fulfillment via google cloud function.
+#### Create Welcome Event Handler 
 
 Ensure you have an event handler in your flow builder that handle the custom `WELCOME` event, the highlighted area in figure 3.11 show you how to add new event handler in DialogFlow CX builder.
 
@@ -305,7 +304,9 @@ Ensure you have an event handler in your flow builder that handle the custom `WE
 Figure 3.11 Creation of the welcome event
 #### Create Google Cloud Function
 
-For accessing the WelcomeEvent body sent by Third-Party Bots you will need to create a Google cloud function that should be capable of parsing the additional message context sent by Third-Party Bots. The minimal code example below shows how to check if there is a `LastConsumerMessage` present in the message context , then send back text response containing the last consumer message. Please note, that response sent by The Google Cloud function should follow the Dialogflow CX response schemas.
+The last consumer message is part of the context information sent by Third-Party Bots in the request body. For accessing the welcome event we will need to create Google cloud function that should be capable of parsing the additional message context sent by Third-Party Bots. 
+
+The minimal code example below shows how to check if `lastConsumerMessage` property present in the request context, then send back a text response containing the last consumer message. Please note, that response sent by The Google Cloud function should follow the Dialogflow CX response schemas
 
 
 ```javascript
@@ -358,11 +359,11 @@ exports.handleWebhook = (request, response) => {
 
 After the function has been deployed this needs to be added to the fulfillment section of the Welcome event handler.
 This fulfillment can be found in the Google Dialogflow CX console as shown in the Figure 3.12 highlighted area.
-Webhook needs to be enabled and filled with the relevant information of the cloud function.
+Webhook need to be enabled and filled with the relevant information of the cloud function.
 (e.g. Auth Data and the Trigger URL)
 
 <img class="fancyimage" style="width:600px" src="img/ThirdPartyBots/dialogflow_cx_welcomeevent-cloud-function.png">
-Figure 3.12 Webhook configuration that need to be added for calling Cloud Function
+Figure 3.12 Webhook configuration that needs to be added for calling Cloud Function
 
 Once Webhook configuration is added then the Google Dialogflow CX bot will be able to respond to the welcome event via the cloud function.
 

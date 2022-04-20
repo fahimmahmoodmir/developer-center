@@ -320,14 +320,14 @@ respond to the requests via the Amazon Lambda function. A demo of our WhatsApp m
 
 ### Receiving Last consumer message (Messaging Only)
 
-Third-Party Bots will provide the last message sent by the consumer as part of the welcome event when an ongoing conversation gets transferred to a new Agent or skill. This will provide a way to run custom logic and respond back with a different response than the normal welcome intent.
+Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-An example use case of the last consumer message sent by Third-Party Bots is described below. The example will show how to set up and access the WelcomeEvent response in Amazon Lex. We will use Amazon Lex capability of providing fulfillment via Amazon Lambda.
-
+We will describe an example of how to set up and access the WelcomeEvent response in Amazon Lex below. We will use Amazon Lex's capability of providing fulfillment via Amazon Lambda.
 #### Create Amazon Lambda Function
 
- Last consumer message is part of context information sent by Third-Party Bots in the request. For accessing the WelcomeEvent body we will need to create an Amazon Lambda function that should be capable of parsing the additional message context sent by Third-Party Bots. The minimal code example below shows how to check if there is a `LastConsumerMessage` present in the message context , then send back text response containing the last consumer message. Please note that response should follow the Lex response schema and for more information on how to create Lambda function for Amazon Lex you can also follow [the official documentation](https://docs.aws.amazon.com/lex/latest/dg/gs2-prepare.html)
+The last consumer message is part of the context information sent by Third-Party Bots in the request body. For accessing the welcome event we will need to create an Amazon Lambda function that should be capable of parsing the additional message context sent by Third-Party Bots. 
 
+The minimal code example below shows how to check if `lastConsumerMessage` property present in the request context, then send back a text response containing the last consumer message. Please note that the response must follow the Lex response schema. More information on how to create the Lambda function for Amazon Lex you can also follow [the official documentation](https://docs.aws.amazon.com/lex/latest/dg/gs2-prepare.html)
 
 ```javascript
 'use strict';
@@ -385,8 +385,8 @@ exports.handler = (event, context, callback) => {
 
 #### Create WelcomeEvent Intent and Link Amazon Lambda
 
-Ensure you have an ‘entry point’ intent that utilises the default ‘WELCOME’ event, if not you can create new intent triggred by `WELCOME-INTENT` utterances.
-After the Sample utterances are added move to section of the fulfillment and choose AWS Lambda function. Our deployed lambda function should populate in the list of selections. Select the lambda function which in our example case is WelcomeEventCloudFunction. This can be seen in Figure 3.9 below
+Ensure you have an ‘entry point’ intent that utilizes the default ‘WELCOME’ event, if not you can create new intent triggered by `WELCOME-INTENT` utterances. After the Sample utterances are added move to the section of the fulfillment and choose the AWS Lambda function.
+Our deployed lambda function should populate the list of selections. Select the Lambda function which in our example case is WelcomeEventCloudFunction. This can be seen in Figure 3.9 below
 
 
 <img class="fancyimage" style="width:550px" src="img/ThirdPartyBots/amazon-lex-welcome-intent.png">
