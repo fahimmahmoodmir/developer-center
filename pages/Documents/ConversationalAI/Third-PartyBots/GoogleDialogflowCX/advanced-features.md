@@ -294,7 +294,7 @@ A demo of our WhatsApp map example with Google Cloud Function (defined above) ca
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-We will describe an example of how to set up and access the WelcomeEvent response in Google Dialogflow CX below. We will use Google Dialogflow's capability of providing fulfillment via google cloud function.
+We will describe an example of how to set up and access the WelcomeEvent response in Google Dialogflow CX below. We will use Google Dialogflow's capability of providing fulfillment via google cloud function as webhook.
 #### Create Welcome Event Handler 
 
 Ensure you have an event handler in your flow builder that handle the custom `WELCOME` event, the highlighted area in figure 3.11 show you how to add new event handler in DialogFlow CX builder.
