@@ -396,7 +396,6 @@ can be seen in Figure 4.8:
 
 Figure 4.8 A Demo of sending raw response back from Custom Endpoint Service on receiving Rich Content Event
 
-
 ### Receiving Last consumer message (Messaging Only)
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.

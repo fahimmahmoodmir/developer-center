@@ -335,8 +335,6 @@ A demo of our WhatsApp map example with the above bot configuration (defined abo
 
 <img class="fancyimage" style="width:300px" src="img/watsonassistant/watson_v1_richcontent_demo.gif">
 
-
-
 ### Receiving Last consumer message (Messaging Only)
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
