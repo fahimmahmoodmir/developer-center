@@ -435,7 +435,7 @@ The results can be seen in a demo below:
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-In Microsoft Bot the last consumer message is passed via the property `lastConsumerMessage` that is sent with `context` information. This context information within a conversation is preserved/passed in the channelData property (further information about channelData can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-api-reference?view=azure-bot-service-4.0#activity-object)).
+In Microsoft Bot the last consumer message is passed via the property `lastConsumerMessage` that is sent with `context` information as part of the `lpEvent` data. This context information within a conversation is preserved/passed in the channelData property (further information about channelData can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-api-reference?view=azure-bot-service-4.0#activity-object)).
 
 An example of the request body containing WelcomeEvent can be seen below:
 
@@ -445,12 +445,10 @@ An example of the request body containing WelcomeEvent can be seen below:
   "text": "",
   "channelData": {
     "context": {
-      "lastConsumerMessage": "I need to return my order"
       "lpEvent": {
-        "event": {
-          "type": "ContentEvent",
-          "content": "welcome"
-        }
+        "lastConsumerMessage": "I need to return my order"
+        "type": "ContentEvent",
+        "content": "welcome"
       },
       "lpSdes": {}
     }

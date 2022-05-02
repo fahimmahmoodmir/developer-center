@@ -375,9 +375,6 @@ expected by Third-Party Bot Connector can be found at [API Service Specification
         }
       ]
     }
-  },
-  "context": {
-    // here comes context information
   }
 }
 ```
@@ -400,17 +397,17 @@ Figure 4.8 A Demo of sending raw response back from Custom Endpoint Service on r
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-In Custom Endpoint service, last consumer message is passed via the property `lastConsumerMessage` that is sent as property of the event `data` information. An example of the request body containing WelcomeEvent can be seen below:
+In Custom Endpoint service, last consumer message is passed via the property `lastConsumerMessage` that is sent as property of the `rawEvent` information. An example of the request body containing WelcomeEvent can be seen below:
 
 ```javascript
 {
   "type": "START",
   "source": "CONVERSATION",
-  "data": {
-    "lastConsumerMessage": "I need to return my order"
-  },
-  "context": {
-    // here comes context information
+  "data": {},
+  "rawEvent": {
+    type: "ContentEvent",
+    contentType: "welcome",
+    lastConsumerMessage: "I need to return my order",
   }
 }
 ```

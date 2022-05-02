@@ -319,13 +319,16 @@ The minimal code example below shows how to check if `lastConsumerMessage` prope
 exports.handleWebhook = (request, response) => {
   const {
     payload: {
-      lastConsumerMessage
+      lpEvent: {
+        contentType,
+        lastConsumerMessage
+      } = {}
     } = {} 
   } = req.body;
 
   let fulfillmentResponse;
 
-  if (lastConsumerMessage) {
+  if (contentType === 'welcome'  && lastConsumerMessage) {
     fulfillmentResponse = {
       fulfillmentResponse: {
         messages: [

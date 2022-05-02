@@ -339,7 +339,7 @@ A demo of our WhatsApp map example with the above bot configuration (defined abo
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-The `lastConsumerMessage` is part of the context that is sent by Third-Party Bots. Thus, for Watson Assistant, we can leverage the [Context Variables](https://cloud.ibm.com/docs/assistant?topic=assistant-dialog-runtime-context#dialog-runtime-context-variables)
+The last consumer message is passed via the property `lastConsumerMessage` which is part of another property `lpEvent` that is sent with `context` information by Third-Party Bots. Thus, for Watson Assistant, we can leverage the [Context Variables](https://cloud.ibm.com/docs/assistant?topic=assistant-dialog-runtime-context#dialog-runtime-context-variables)
 
 An example of accessing `lastConsumerMessage` from that context variable can be seen in Figure 3.10.
 

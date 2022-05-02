@@ -420,8 +420,10 @@ exports.handleWebhook = (request, response) => {
   const {
     originalDetectIntentRequest: {
       payload: { 
-        lpEvent: {contentType},
-        lastConsumerMessage
+        lpEvent: {
+          contentType,
+          lastConsumerMessage
+        }
       } = {},
     } = {},
   } = request.body;

@@ -417,18 +417,19 @@ We can see the above LivePerson function in action below:
 
 Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
-In LivePerson functions integration last consumer message is passed via the property `lastConsumerMessage` that is sent with `context` information. An example of the request body containing WelcomeEvent can be seen below:
+In LivePerson functions integration last consumer message is passed via the property `lastConsumerMessage` that is sent with `context` information as part of `lpEvent` data. An example of the request body containing WelcomeEvent can be seen below:
 
 ```javascript
 const {
   message,
   convId,
   context: {
-    lastConsumerMessage,
-    lpEvent: {
-      event: { type, content }, // this contain the ContentEvent with content value `welcome`
-    },
-  },
+    lpEvent: { 
+      type, 
+      content,
+      lastConsumerMessage
+    } // this contain the ContentEvent with content value `welcome`
+  }
 } = input.payload;
 ```
 
@@ -444,8 +445,8 @@ function lambda(input, callback) {
   const {
     message,
     context: {
-      lastConsumerMessage = "",
       lpEvent: { 
+        lastConsumerMessage = "",
         type = "",
         content = "" 
       } = {}

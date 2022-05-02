@@ -352,7 +352,7 @@ function dispatch(intentRequest, callback) {
 
   if (requestAttributes && requestAttributes['BC-LP-CONTEXT']) {
     const parsedLpContext = JSON.parse(requestAttributes['BC-LP-CONTEXT']);
-    if (parsedLpContext.lastConsumerMessage) {
+    if (parsedLpContext.lpEvent && parsedLpContext.lpEvent.lastConsumerMessage) {
       response = `I received lastConsumerMessage: ${parsedLpContext.lastConsumerMessage}`;
     }
     else {
