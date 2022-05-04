@@ -360,7 +360,7 @@ Find details on how it works [here](https://cloud.ibm.com/docs/assistant?topic=a
 Disambiguation responses will be renders as `Quick Replies`.
 
 <img class="fancyimage" style="width:600px" src="img/ThirdPartyBots/watson2-disambiguation.png">
-Figure 3.10 Configure Watson Disambiguation
+Figure 3.11 Configure Watson Disambiguation
 
 ### Prevent Transferring loop behavior
 

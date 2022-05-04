@@ -399,15 +399,15 @@ Third-Party bot now provides a way to add the last consumer message as a part of
 
 In Custom Endpoint service, last consumer message is passed via the property `lastConsumerMessage` that is sent as property of the `rawEvent` information. An example of the request body containing WelcomeEvent can be seen below:
 
-```javascript
+```json
 {
   "type": "START",
   "source": "CONVERSATION",
   "data": {},
   "rawEvent": {
-    type: "ContentEvent",
-    contentType: "welcome",
-    lastConsumerMessage: "I need to return my order",
+    "type": "ContentEvent",
+    "contentType": "welcome",
+    "lastConsumerMessage": "I need to return my order",
   }
 }
 ```

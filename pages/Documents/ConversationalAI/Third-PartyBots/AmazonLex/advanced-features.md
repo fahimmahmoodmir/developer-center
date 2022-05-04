@@ -320,9 +320,10 @@ respond to the requests via the Amazon Lambda function. A demo of our WhatsApp m
 
 ### Receiving Last consumer message (Messaging Only)
 
-Third-Party bot now provides a way to add the last consumer message as a part of the welcome event (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
+Third-Party bot now provides a way to add the last consumer message as a part of [the welcome event](third-party-bots-amazon-lex-basic-content.html#the-welcome-event) (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
 We will describe an example of how to set up and access the WelcomeEvent response in Amazon Lex below. We will use Amazon Lex's capability of providing fulfillment via Amazon Lambda.
+
 #### Create Amazon Lambda Function
 
 The last consumer message is part of the context information sent by Third-Party Bots in the request body. For accessing the welcome event we will need to create an Amazon Lambda function that should be capable of parsing the additional message context sent by Third-Party Bots. 
@@ -386,7 +387,7 @@ exports.handler = (event, context, callback) => {
 #### Create WelcomeEvent Intent and Link Amazon Lambda
 
 Ensure you have an ‘entry point’ intent that utilizes the default ‘WELCOME’ event, if not you can create new intent triggered by `WELCOME-INTENT` utterances. After the Sample utterances are added move to the section of the fulfillment and choose the AWS Lambda function.
-Our deployed lambda function should populate the list of selections. Select the Lambda function which in our example case is WelcomeEventCloudFunction. This can be seen in Figure 3.9 below
+Our deployed lambda function should populate the list of selections. Select the Lambda function which in our example case is `WelcomeEventCloudFunction`. This can be seen in Figure 3.9 below
 
 
 <img class="fancyimage" style="width:550px" src="img/ThirdPartyBots/amazon-lex-welcome-intent.png">
