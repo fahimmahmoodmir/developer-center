@@ -375,6 +375,9 @@ expected by Third-Party Bot Connector can be found at [API Service Specification
         }
       ]
     }
+  },
+  "context": {
+    // here comes context information
   }
 }
 ```
