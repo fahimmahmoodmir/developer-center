@@ -392,7 +392,7 @@ A demo of our WhatsApp map example with Google Cloud Function (defined above) ca
 
 ### Receiving Last consumer message (Messaging Only)
 
-Third-Party bot now provides a way to add the last consumer message as a part of [the welcome event](third-party-bots-google-dialogflow-es-basic-content.html#the-welcome-event) (messaging only). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
+Third-Party bot now provides a way to add the last consumer message as a part of [the welcome event](third-party-bots-google-dialogflow-es-basic-content.html#the-welcome-event). When an ongoing conversation gets transferred to a new Agent or Skill, This enhancement will allow brands to respond to the last consumer message uttered as per their needs.
 
 We will describe an example of how to set up and access the WelcomeEvent response in Google Dialogflow ES below. We will use Google Dialogflow's capability of providing fulfillment via google cloud function as webhook.
 
